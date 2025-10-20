@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+/* Defined custom theme values */
+@theme {
+  --font-primary: "Encode Sans", sans-serif;
+  --font-secondary: "Open Sans", sans-serif;
+  --font-tertiary: "Urbanist", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-primary;
+  }
+}
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari, Opera */
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+body {
+  font-family: "Encode Sans", sans-serif;
+}
