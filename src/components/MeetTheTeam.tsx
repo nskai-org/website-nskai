@@ -24,8 +24,8 @@ export default function MeetTheTeam() {
         </div>
 
         {/* team members */}
-        <div className="flex flex-col gap-12 items-center justify-center mt-20 sm:mt-12">
-          <div className="w-60 h-60 overflow-hidden rounded-full">
+        <div className="flex flex-col gap-12 items-center justify-center mt-20 sm:mt-12 md:mt-52 lg:mt-20">
+          <div className="w-60 h-60 overflow-hidden rounded-full hover:outline-4 hover:outline-white transition-outline duration-500 cursor-pointer">
             <img
               src={Lorenzo}
               alt="Image of Lorenzo. Lead developer at NSK.AI"

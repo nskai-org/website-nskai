@@ -52,7 +52,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative z-0 flex flex-col lg:flex-row h-[110vh]">
+    <section className="relative z-0 flex flex-col lg:flex-row">
       {/* LEFT: Text Section */}
       <div className="lg:w-1/2 w-full flex flex-col gap-12 justify-center px-6 sm:px-10 lg:px-24 pt-54 pb-12 md:pt-40 bg-white">
         <div className="flex flex-col gap-8">
@@ -112,7 +112,7 @@ export default function HeroSection() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col sm:flex-row items-start gap-6 snap-center flex-shrink-0 w-full bg-white/25 backdrop-blur-md rounded-3xl p-4"
+                  className="flex flex-col sm:flex-row items-start gap-6 snap-center flex-shrink-0 w-full bg-white/15 backdrop-blur-md rounded-3xl p-4"
                 >
                   <img
                     src={update.image}

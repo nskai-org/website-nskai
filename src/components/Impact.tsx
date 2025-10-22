@@ -28,7 +28,7 @@ const gridItems2 = [
 
 export default function Impact() {
   return (
-    <section className="py-24">
+    <section className="pb-24">
       <div className="container mx-auto px-4 flex flex-col gap-8">
         {/* top */}
         <h2 className="font-primary font-semibold text-3xl md:text-[55px]">

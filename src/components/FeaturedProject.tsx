@@ -50,7 +50,7 @@ export default function FeaturedProject() {
         <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw]">
           <div className="flex overflow-x-auto scrollbar-hide gap-6 sm:gap-10 md:gap-16 pl-4 sm:pl-6 md:pl-12 snap-x snap-mandatory">
             {/* Project 1 */}
-            <div className="w-[90vw] sm:w-[85vw] md:w-[90vw] bg-black text-white py-6 sm:py-8 md:py-10 flex flex-col gap-6 sm:gap-8 md:gap-10 flex-shrink-0 snap-start rounded-2xl">
+            <div className="w-[95vw] sm:w-[85vw] md:w-[90vw] bg-black text-white py-6 sm:py-8 md:py-10 flex flex-col gap-6 sm:gap-8 md:gap-10 flex-shrink-0 snap-start rounded-2xl">
               <div className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-4 sm:px-6">
                 {imageCollection.map((item, index) => (
                   <div key={index} className="flex-shrink-0">

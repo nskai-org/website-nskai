@@ -12,8 +12,8 @@ export default function Banner() {
           alt="Calendar icon"
           className="select-none pointer-events-none md:w-5 md:h-5"
         />
-        <p className="font-secondary text-xs md:text-sm leading-6 font-semibold text-balance">
-          Next Event: AI In Healthcare 16/05/2025 10am ET
+        <p className="font-secondary text-xs md:text-sm leading-6 font-semibold text-balance select-none">
+          Next Event: AI In Healthcare 16/05/2026 10am ET
         </p>
       </div>
       {/* right container */}
