@@ -2,7 +2,7 @@ import CommunitySnapshotImage from "../assets/community-snapshot.png";
 
 export default function CommunitySnapshots() {
   return (
-    <section className="py-24 px-6 md:px-8">
+    <section id="community" className="py-24 px-6 md:px-8">
       <div
         className="container mx-auto px-4 md:px-10 min-h-[90vh] text-white flex flex-col justify-between py-8 rounded-2xl"
         style={{
