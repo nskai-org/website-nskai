@@ -1,11 +1,11 @@
 import ArrowRight from "../assets/UIs/solar_arrow-right-black.svg";
-import image11 from "../assets/rag-bootcamp/outreach.png";
+import image10 from "../assets/rag-bootcamp/outreach.png";
 import image5 from "../assets/rag-bootcamp/holding-hands.png";
-import image9 from "../assets/rag-bootcamp/picnic-bw.png";
+import image8 from "../assets/rag-bootcamp/picnic-bw.png";
 import image2 from "../assets/rag-bootcamp/ai.png";
-import image4 from "../assets/rag-bootcamp/conference-photoshoot.png";
+// import image4 from "../assets/rag-bootcamp/conference-photoshoot.png";
 import image7 from "../assets/rag-bootcamp/jesse-zhang.png";
-import image10 from "../assets/rag-bootcamp/rag-paper-talk.png";
+import image9 from "../assets/rag-bootcamp/rag-paper-talk.png";
 import image6 from "../assets/rag-bootcamp/organizers.png";
 import image3 from "../assets/rag-bootcamp/chip.png";
 import image1 from "../assets/rag-bootcamp/1370.png";
@@ -13,22 +13,21 @@ import bgFeatured from "../assets/bg-featured-project.png";
 import CheckIcon from "../assets/UIs/check-icon.svg";
 
 const imageCollection = [
-  image11,
-  image5,
-  image9,
-  image2,
-  image4,
-  image7,
   image10,
-  image6,
+  image5,
+  image8,
   image2,
+  // image4,
+  image7,
+  image9,
+  image6,
   image3,
   image1,
 ];
 
 export default function FeaturedProject() {
   return (
-    <section className="py-24">
+    <section id="projects" className="py-24">
       {/* ---------- top container ---------- */}
       <div className="container mx-auto px-4 flex flex-col gap-16">
         <div className="flex flex-col gap-10 md:flex-row items-center justify-between">
@@ -36,10 +35,10 @@ export default function FeaturedProject() {
             Featured <span className="font-normal">Project</span>
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <button className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer">
+            <button className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
               Become a Partner
             </button>
-            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer">
+            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
               Enroll Your Institution{" "}
               <img src={ArrowRight} alt="Arrow right" className="select-none" />
             </button>
