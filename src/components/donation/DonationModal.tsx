@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -9,6 +9,19 @@ export default function DonationModal() {
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
   const [comment, setComment] = useState("");
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden"; // Disable scroll
+    } else {
+      document.body.style.overflow = ""; // Restore scroll
+    }
+
+    // Clean up on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
 
   const currencies = [
     { code: "USD", symbol: "$", color: "bg-blue-500" },

@@ -1,5 +1,5 @@
 import SkyBackground from "../assets/sky-bg.png";
-import Lorenzo from "../assets/teamMembers/lorenzo.jpg";
+import Terfaren from "../assets/teamMembers/terfaren.jpg";
 import ArrowRight from "../assets/UIs/solar_arrow-right-black.svg";
 
 export default function MeetTheTeam() {
@@ -27,14 +27,14 @@ export default function MeetTheTeam() {
         <div className="flex flex-col gap-12 items-center justify-center mt-20 sm:mt-12 md:mt-52 lg:mt-20">
           <div className="w-60 h-60 overflow-hidden rounded-full hover:outline-4 hover:outline-white transition-outline duration-500 cursor-pointer">
             <img
-              src={Lorenzo}
+              src={Terfaren}
               alt="Image of Lorenzo. Lead developer at NSK.AI"
               className="w-full h-full object-cover select-none"
             />
           </div>
           {/* button */}
           <div>
-            <button className="rounded-[50px] bg-white font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none">
+            <button className="rounded-[50px] bg-white font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
               See NSK.AI Team{" "}
               <img src={ArrowRight} alt="Arrow right" className="select-none" />
             </button>

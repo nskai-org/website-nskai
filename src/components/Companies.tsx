@@ -23,7 +23,7 @@ export default function Companies() {
       <div className="max-w-5xl w-full mx-auto mt-20 px-4 py-24">
         <p className="font-primary font-medium text-center text-base md:text-4xl -tracking-[3%] md:leading-[70px]">
           We democratize AI learning across Africa. Fro
-          <span className="text-[#D9D9D9]">
+          <span className="">
             m paper‑reading clubs to hands‑on bootcamps and project demos, we
             help students and young professionals gain real skills, build
             portfolios, and access mentorship at scale.

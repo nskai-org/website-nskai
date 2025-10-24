@@ -92,9 +92,7 @@ export default function CoreMembers() {
                       {card.jobTitle}
                     </span>
                   </div>
-                  <p className="max-w-xs text-justify font-secondary font-normal text-[#161616] text-sm md:text-xl leading-relaxed md:leading-[35px] tracking-[2%] mt-6">
-                    {card.statement}
-                  </p>
+                  <p className="max-w-xs text-justify font-secondary font-normal text-[#161616] text-sm md:text-xl leading-relaxed md:leading-[35px] tracking-[2%] mt-6"></p>
                 </div>
               ))}
             </div>

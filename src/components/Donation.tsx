@@ -6,7 +6,7 @@ export default function Donation() {
   return (
     <section
       id="get-involved"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat pt-24 pb-12"
+      className="relative min-h-[70vh] md:min-h-screen bg-cover bg-center bg-no-repeat pt-24 pb-12"
       style={{
         backgroundImage: `url(${Background})`,
       }}
@@ -35,16 +35,16 @@ export default function Donation() {
         </div>
 
         {/* -------------Scroll effect (hover to scroll) ---------------- */}
-        <div className="relative overflow-hidden mt-20 group cursor-pointer">
-          <div className="flex items-end gap-6 whitespace-nowrap transition-transform duration-[20s] ease-linear group-hover:translate-x-[-50%]">
+        <div className="relative overflow-hidden mt-6 md:mt-20 group cursor-pointer">
+          <div className="flex items-end gap-6 whitespace-nowrap transition-transform duration-[10s] ease-linear group-hover:translate-x-[-50%]">
             {/* Duplicate text and logo for smooth scroll */}
             {[...Array(1)].map((_, i) => (
               <div key={i} className="flex items-end gap-6 mr-6">
-                <span className="font-primary font-semibold text-[100px] leading-[100%]">
+                <span className="font-primary font-semibold text-6xl md:text-[100px] leading-[100%]">
                   Make a difference
                 </span>
                 <img src={Logo} alt="NSK.AI logo" className="w-150" />
-                <span className="font-primary font-semibold text-[100px] leading-[100%]">
+                <span className="font-primary font-semibold text-6xl md:text-[100px] leading-[100%]">
                   Make a difference
                 </span>
               </div>

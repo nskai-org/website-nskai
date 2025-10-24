@@ -45,7 +45,7 @@ export default function LatestNews() {
               Join our community and stay informed about the latest events,
               success stories, and Ai innovations.
             </p>
-            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none">
+            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
               Read More Blogs{" "}
               <img src={ArrowRight} alt="Arrow right" className="select-none" />
             </button>
