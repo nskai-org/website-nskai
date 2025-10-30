@@ -10,6 +10,7 @@ import image3 from "../assets/rag-bootcamp/chip.png";
 import image1 from "../assets/rag-bootcamp/1370.png";
 import bgFeatured from "../assets/bg-featured-project.png";
 import CheckIcon from "../assets/UIs/check-icon.svg";
+import { Link } from "react-router-dom";
 
 const imageCollection = [
   image10,
@@ -33,16 +34,21 @@ export default function FeaturedProject() {
             Featured <span className="font-normal">Project</span>
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => (window.location.href = "/community#becomePart")}
-              className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
-            >
-              Become a Partner
-            </button>
-            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
-              Enroll Your Institution{" "}
-              <img src={ArrowRight} alt="Arrow right" className="select-none" />
-            </button>
+            <Link to={"/community#becomePart"}>
+              <button className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+                Become a Partner
+              </button>
+            </Link>
+            <Link to={"/community#becomePart"}>
+              <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+                Enroll Your Institution{" "}
+                <img
+                  src={ArrowRight}
+                  alt="Arrow right"
+                  className="select-none"
+                />
+              </button>
+            </Link>
           </div>
         </div>
 

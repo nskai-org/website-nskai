@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/UIs/solar_arrow-right-black.svg";
 
 import HeroImg1 from "../../assets/community-page/hero-section/community-hero-img-1.png";
@@ -11,7 +12,7 @@ import HeroImg8 from "../../assets/community-page/hero-section/community-hero-im
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[130vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[110vh] md:min-h-[130vh] flex items-center justify-center overflow-hidden">
       {/* ------------- hero text ------------------ */}
       <div className="flex flex-col gap-8 items-center justify-center px-4">
         <span className="font-secondary font-normal text-base text-[#101213] px-6 py-4 bg-[#f8f8f8] border-2 border-dashed border-[#a1a1a1] inline-block">
@@ -21,12 +22,11 @@ export default function HeroSection() {
           A Living Community of <span className="font-normal">Learners</span>
         </h1>
         <div className="select-none">
-          <button
-            onClick={() => (window.location.href = "#becomePart")}
-            className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
-          >
-            Enroll Your Institution <img src={ArrowRight} alt="Arrow right" />
-          </button>
+          <Link to={"#becomePart"}>
+            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+              Enroll Your Institution <img src={ArrowRight} alt="Arrow right" />
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -34,13 +34,13 @@ export default function HeroSection() {
       <img
         src={HeroImg1}
         alt="Hero Image 1 for community hero section"
-        className="absolute top-40 left-2 md:top-20 md:left-10 lg:top-20 lg:left-15 select-none w-20 md:w-40 lg:w-80"
+        className="absolute top-60 left-2 md:top-20 md:left-10 lg:top-20 lg:left-15 select-none w-20 md:w-40 lg:w-80"
       />
 
       <img
         src={HeroImg2}
         alt="Hero image 2 for community hero section"
-        className="absolute top-100 -left-10 md:top-110 md:-left-8 lg:top-110 lg:-left-8 select-none w-30 md:w-60 lg:w-60"
+        className="hidden md:block md:absolute md:top-110 md:-left-8 lg:block lg:absolute lg:top-110 lg:-left-8 select-none w-30 md:w-60 lg:w-60"
       />
 
       <img
@@ -64,7 +64,7 @@ export default function HeroSection() {
       <img
         src={HeroImg6}
         alt="Hero image 6 for community hero section"
-        className="absolute top-100 -right-11 md:top-100 md:-right-10 lg:top-100 lg:-right-10 select-none w-30 md:w-50 lg:w-50"
+        className="hidden md:block md:absolute md:top-100 md:-right-10 lg:block lg:absolute lg:top-100 lg:-right-10 select-none w-30 md:w-50 lg:w-50"
       />
 
       <img
