@@ -3,7 +3,6 @@ import image10 from "../assets/rag-bootcamp/outreach.png";
 import image5 from "../assets/rag-bootcamp/holding-hands.png";
 import image8 from "../assets/rag-bootcamp/picnic-bw.png";
 import image2 from "../assets/rag-bootcamp/ai.png";
-// import image4 from "../assets/rag-bootcamp/conference-photoshoot.png";
 import image7 from "../assets/rag-bootcamp/jesse-zhang.png";
 import image9 from "../assets/rag-bootcamp/rag-paper-talk.png";
 import image6 from "../assets/rag-bootcamp/organizers.png";
@@ -17,7 +16,6 @@ const imageCollection = [
   image5,
   image8,
   image2,
-  // image4,
   image7,
   image9,
   image6,
@@ -35,7 +33,10 @@ export default function FeaturedProject() {
             Featured <span className="font-normal">Project</span>
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <button className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+            <button
+              onClick={() => (window.location.href = "/community#becomePart")}
+              className="bg-[#161616] rounded-[50px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
+            >
               Become a Partner
             </button>
             <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">

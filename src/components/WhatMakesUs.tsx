@@ -57,7 +57,10 @@ export default function WhatMakesUs() {
 
           {/* button */}
           <div>
-            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center gap-4 py-2 px-4 md:py-4 md:px-8 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+            <button
+              onClick={() => (window.location.href = "/community")}
+              className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center gap-4 py-2 px-4 md:py-4 md:px-8 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
+            >
               Join the Community{" "}
               <img src={ArrowRight} alt="Arrow right" className="select-none" />
             </button>

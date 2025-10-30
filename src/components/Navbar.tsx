@@ -10,8 +10,8 @@ import LinkedIn from "../assets/navbar-socials/design-linkedin.png";
 
 const navItemsList = [
   { title: "About", link: "/about" },
-  { title: "Community", link: "#community" },
-  { title: "Projects", link: "#projects" },
+  { title: "Community", link: "/community" },
+  { title: "Projects", link: "/projects" },
   { title: "Blog", link: "#blog" },
   { title: "Get Involved", link: "#get-involved" },
   { title: "Donate", link: "#get-involved" },
@@ -42,20 +42,20 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // ✅ Detect scroll position
+  // Detect scroll position
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Check if route is active
+  //  Check if route is active
   const isActive = (path: string) => {
     if (path.startsWith("#")) return false;
     return location.pathname === path;
   };
 
-  // ✅ Handle clicks for both routes and hash links
+  //  Handle clicks for both routes and hash links
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     link: string
@@ -97,9 +97,12 @@ export default function Navbar() {
             {/* Show About + Contact on lg and above, only when NOT scrolled */}
             {!scrolled && (
               <ul className="hidden lg:flex items-center gap-8 transition-opacity duration-300">
-                {["/about", "/contact"].map((link) => {
+                {["/about", "/projects"].map((link) => {
                   const item = navItemsList.find((n) => n.link === link);
                   if (!item) return null;
+
+                  const isProductsPage = location.pathname === "/products";
+                  const isAboutPage = location.pathname === "/about";
 
                   return (
                     <li key={item.link} className="relative">
@@ -110,9 +113,9 @@ export default function Navbar() {
                       <Link
                         to={item.link}
                         onClick={(e) => handleNavClick(e, item.link)}
-                        className={`font-secondary font-semibold text-white text-lg transition-colors ${
-                          isActive(item.link) ? "text-gray-200" : ""
-                        }`}
+                        className={`font-secondary font-semibold text-lg transition-colors ${
+                          isProductsPage ? "text-white" : "text-black"
+                        } ${isAboutPage ? "text-white" : "text-black"}`}
                       >
                         {item.title}
                       </Link>

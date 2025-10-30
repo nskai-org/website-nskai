@@ -7,6 +7,8 @@ import AboutPage from "./pages/AboutPage";
 import Banner from "./components/Banner";
 import NotFound from "./pages/NotFound";
 import RouteScrollToTop from "./utils/RouteScrollToTop";
+import CommunityPage from "./pages/CommunityPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/community" element={<CommunityPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           {/* ------------ 404 PAGE -------------- */}
           <Route path="*" element={<NotFound />} />
         </Routes>

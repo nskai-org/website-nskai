@@ -26,11 +26,11 @@ const socialIcons = [
 const footerAboutItems = [
   {
     title: "Community",
-    link: "",
+    link: "/community",
   },
   {
     title: "Projects",
-    link: "#projects",
+    link: "/projects",
   },
   {
     title: "Donate",
