@@ -4,7 +4,7 @@ import illustration3 from "../../assets/community-page/illustrations/Illustratio
 
 export default function Activities() {
   return (
-    <section className="py-24">
+    <section className="pb-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-16 md:gap-32 items-center justify-center">
           <h2 className="max-w-lg text-2xl md:text-[55px] font-primary font-semibold text-center leading-[100%]">

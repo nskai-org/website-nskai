@@ -4,7 +4,7 @@ import HeroBg from "../assets/hero-bg.png";
 import UpdateImg1 from "../assets/updates-image-for-hero-section/update-image-1.png";
 import UpdateImg2 from "../assets/updates-image-for-hero-section/update-image-1.png";
 import UpdateImg3 from "../assets/updates-image-for-hero-section/update-image-1.png";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const updates = [
   {
@@ -31,8 +31,6 @@ export default function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const navigate = useNavigate();
 
   // Track active slide
   useEffect(() => {
@@ -85,18 +83,16 @@ export default function HeroSection() {
 
         {/* buttons */}
         <div className="flex items-center gap-6 select-none">
-          <button
-            onClick={() => navigate("/community")}
-            className="bg-[#161616] rounded-[45px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
-          >
-            Join the community
-          </button>
-          <button
-            onClick={() => (window.location.href = "/projects")}
-            className="bg-[#F7F7F8] rounded-[45px] py-2 px-4 md:py-4 md:px-9 text-[#121212] font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
-          >
-            Explore Our Work
-          </button>
+          <Link to={"/community"}>
+            <button className="bg-[#161616] rounded-[45px] py-2 px-4 md:py-4 md:px-9 text-white font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+              Join the community
+            </button>
+          </Link>
+          <Link to={"/projects"}>
+            <button className="bg-[#F7F7F8] rounded-[45px] py-2 px-4 md:py-4 md:px-9 text-[#121212] font-secondary font-semibold text-xs md:text-base cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+              Explore Our Work
+            </button>
+          </Link>
         </div>
       </div>
 

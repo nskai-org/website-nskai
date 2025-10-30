@@ -3,6 +3,7 @@ import CommunityIcon from "../assets/UIs/icon-one.svg";
 import PracticalIcon from "../assets/UIs/icon-two.svg";
 import ScaleIcon from "../assets/UIs/icon-three.svg";
 import ArrowRight from "../assets/UIs/solar_arrow-right-black.svg";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -57,13 +58,16 @@ export default function WhatMakesUs() {
 
           {/* button */}
           <div>
-            <button
-              onClick={() => (window.location.href = "/community")}
-              className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center gap-4 py-2 px-4 md:py-4 md:px-8 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
-            >
-              Join the Community{" "}
-              <img src={ArrowRight} alt="Arrow right" className="select-none" />
-            </button>
+            <Link to={"/community"}>
+              <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center gap-4 py-2 px-4 md:py-4 md:px-8 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+                Join the Community{" "}
+                <img
+                  src={ArrowRight}
+                  alt="Arrow right"
+                  className="select-none"
+                />
+              </button>
+            </Link>
           </div>
         </div>
         {/* right column - IMAGE */}
