@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SkyBackground from "../assets/sky-bg.png";
 import Terfaren from "../assets/teamMembers/terfaren.jpg";
 import ArrowRight from "../assets/UIs/solar_arrow-right-black.svg";
@@ -33,12 +34,18 @@ export default function MeetTheTeam() {
             />
           </div>
           {/* button */}
-          <div>
-            <button className="rounded-[50px] bg-white font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
-              See NSK.AI Team{" "}
-              <img src={ArrowRight} alt="Arrow right" className="select-none" />
-            </button>
-          </div>
+          <Link to="/about#team">
+            <div>
+              <button className="rounded-[50px] bg-white font-secondary font-semibold leading-[146%] flex items-center justify-center text-[#101213] text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer select-none transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
+                See NSK.AI Team{" "}
+                <img
+                  src={ArrowRight}
+                  alt="Arrow right"
+                  className="select-none"
+                />
+              </button>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

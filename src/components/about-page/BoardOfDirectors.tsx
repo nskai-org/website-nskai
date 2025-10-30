@@ -36,10 +36,13 @@ export default function BoardOfDirectors() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
           {/* Left Title */}
-          <div className="flex-2">
-            <h2 className="font-primary font-semibold text-3xl md:text-[55px] leading-[100%} text-[#121213]">
-              Our Board <br /> of <span className="font-normal">Directors</span>
-            </h2>
+          <div className="h-[300px] sticky top-[300px]">
+            <div className="flex-2">
+              <h2 className="font-primary font-semibold text-3xl md:text-[55px] leading-[100%} text-[#121213]">
+                Our Board <br /> of{" "}
+                <span className="font-normal">Directors</span>
+              </h2>
+            </div>
           </div>
 
           {/* Right Grid */}

@@ -1,4 +1,3 @@
-// src/pages/NotFound.tsx
 import { Link } from "react-router-dom";
 import Preloader from "../components/Preloader";
 
