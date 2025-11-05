@@ -12,7 +12,7 @@ const navItemsList = [
   { title: "About", link: "/about" },
   { title: "Community", link: "/community" },
   { title: "Projects", link: "/projects" },
-  { title: "Blog", link: "#blog" },
+  { title: "Blog", link: "/blog" },
   { title: "Get Involved", link: "#get-involved" },
   { title: "Donate", link: "#get-involved" },
   { title: "Contact", link: "/contact" },
@@ -101,8 +101,9 @@ export default function Navbar() {
                   const item = navItemsList.find((n) => n.link === link);
                   if (!item) return null;
 
-                  const isProductsPage = location.pathname === "/products";
+                  const isProjectsPage = location.pathname === "/projects";
                   const isAboutPage = location.pathname === "/about";
+                  const isBlogPage = location.pathname === "/blog";
 
                   return (
                     <li key={item.link} className="relative">
@@ -114,8 +115,14 @@ export default function Navbar() {
                         to={item.link}
                         onClick={(e) => handleNavClick(e, item.link)}
                         className={`font-secondary font-semibold text-lg transition-colors ${
-                          isProductsPage ? "text-white" : "text-black"
-                        } ${isAboutPage ? "text-white" : "text-black"}`}
+                          isProjectsPage
+                            ? "text-black"
+                            : isAboutPage
+                            ? "text-white"
+                            : isBlogPage
+                            ? "text-white/50"
+                            : "text-white"
+                        }`}
                       >
                         {item.title}
                       </Link>

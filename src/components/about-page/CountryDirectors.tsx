@@ -1,38 +1,29 @@
 import { FaLinkedin } from "react-icons/fa";
 import Sumeya from "../../assets/about-page/country-directors/Sumeya.png";
 import Hadil from "../../assets/about-page/country-directors/Hadil.png";
-import Elarbi from "../../assets/about-page/country-directors/Elarbi.png";
 import Ziem from "../../assets/about-page/country-directors/Ziem.png";
 import Maina from "../../assets/about-page/country-directors/Maina.png";
 
 const directors = [
   {
     name: "Sumeya",
-    jobTitle: "Founder & AI Educator",
+    jobTitle: "Country Director - Ethopia",
     statement:
       "Sumeya Hussein is a passionate engineer, entrepreneur, and educator dedicated to advancing technology-driven solutions in Africa. She holds a BSc in Electrical and Computer Engineering and an MSc in Computer Engineering.",
     image: Sumeya,
     linkedin: "https://www.linkedin.com/in/sumeya-hussein-927b2520b/",
   },
   {
-    name: "Hadil Elarbi",
-    jobTitle: "Lead Speaker",
+    name: "Hadil",
+    jobTitle: "Country Director - Tunisia",
     statement:
       "I am an engineering student at Université Sesame with a strong passion for Artificial Intelligence, Machine Learning, and innovative technology solutions.",
     image: Hadil,
     linkedin: "https://www.linkedin.com/in/hadil-elarbi-927b2520b/",
   },
   {
-    name: "Elarbi Hadil",
-    jobTitle: "Community Lead",
-    statement:
-      "I am an engineering student at Université Sesame with a strong passion for Artificial Intelligence, Machine Learning, and innovative technology solutions.",
-    image: Elarbi,
-    linkedin: "https://www.linkedin.com/in/elarbi-hadil-927b2520b/",
-  },
-  {
     name: "Ziem P Wellu",
-    jobTitle: "Community Lead",
+    jobTitle: "Country Director - Ghana",
     statement:
       "Ziem P. Wellu is a Ph.D. Candidate in Computer Science at the University of Ghana, specializing in AI, machine learning, and computer vision.",
     image: Ziem,
@@ -40,7 +31,7 @@ const directors = [
   },
   {
     name: "Maina Munyambu",
-    jobTitle: "Community Lead",
+    jobTitle: "Country Director - Kenya",
     statement:
       "AI Engineering leader delivering scalable, secure solutions that raise the competitiveness of African businesses and enable multinational partners to succeed locally.",
     image: Maina,

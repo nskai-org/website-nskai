@@ -26,7 +26,7 @@ export default function Preloader() {
       <img
         src={preloaderImg}
         alt="Loading..."
-        className="w-24 sm:w-32 md:w-40 animate-bounce"
+        className="w-40 sm:w-45 md:w-80 animate-bounce"
       />
     </div>
   );

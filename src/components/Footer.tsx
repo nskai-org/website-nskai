@@ -38,7 +38,7 @@ const footerAboutItems = [
   },
   {
     title: "Blog",
-    link: "#blog",
+    link: "/blog",
   },
   {
     title: "Get Involved",

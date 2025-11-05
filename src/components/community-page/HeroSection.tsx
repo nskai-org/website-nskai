@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/UIs/solar_arrow-right-black.svg";
 
 import HeroImg1 from "../../assets/community-page/hero-section/community-hero-img-1.png";
@@ -9,8 +8,19 @@ import HeroImg5 from "../../assets/community-page/hero-section/community-hero-im
 import HeroImg6 from "../../assets/community-page/hero-section/community-hero-img-6.png";
 import HeroImg7 from "../../assets/community-page/hero-section/community-hero-img-7.png";
 import HeroImg8 from "../../assets/community-page/hero-section/community-hero-img-8.png";
+import { useEffect } from "react";
 
 export default function HeroSection() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <section className="relative min-h-[110vh] md:min-h-[130vh] flex items-center justify-center overflow-hidden">
       {/* ------------- hero text ------------------ */}
@@ -22,11 +32,17 @@ export default function HeroSection() {
           A Living Community of <span className="font-normal">Learners</span>
         </h1>
         <div className="select-none">
-          <Link to={"#becomePart"}>
-            <button className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]">
-              Enroll Your Institution <img src={ArrowRight} alt="Arrow right" />
-            </button>
-          </Link>
+          <button
+            onClick={() => {
+              const section = document.getElementById("becomePart");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="border border-[#D9D9D9] rounded-[50px] font-secondary font-semibold leading-[146%] flex items-center justify-center text-xs md:text-base gap-4 py-2 px-4 md:py-4 md:px-9 cursor-pointer transition-all duration-300 hover:border-[#ff4d4d] hover:shadow-[0_0_15px_#ff4d4d]"
+          >
+            Enroll Your Institution <img src={ArrowRight} alt="Arrow right" />
+          </button>
         </div>
       </div>
 
@@ -58,7 +74,7 @@ export default function HeroSection() {
       <img
         src={HeroImg5}
         alt="Hero image 5 for community hero section"
-        className="absolute top-140 md:right-70 md:top-140 lg:top-150 lg:right-50 select-none w-30 md:w-40 lg:w-40"
+        className="absolute top-152 md:right-70 md:top-140 lg:top-150 lg:right-50 select-none w-30 md:w-40 lg:w-40"
       />
 
       <img
