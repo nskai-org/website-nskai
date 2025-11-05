@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Guide1 from "../../assets/blog/guidelines/guide-1.png";
 import Guide2 from "../../assets/blog/guidelines/guide-2.png";
 import Guide3 from "../../assets/blog/guidelines/guide-3.png";
@@ -13,12 +14,12 @@ export default function EditorialGuidelines() {
         </h2>
 
         {/* Card cluster with images */}
-        <div className="relative h-[360px] md:h-[420px] mb-16 flex items-center justify-center">
+        <div className="relative h-auto md:h-[420px] mb-16 flex flex-col md:items-center md:justify-center md:block">
           {/* Left: Content Rule (guide-1) */}
           <img
             src={Guide1}
             alt="Content Rule guideline"
-            className="absolute top-6 left-2 md:top-2 md:left-8 w-[290px] md:w-[440px] h-auto object-contain z-10 select-none"
+            className="w-[280px] md:w-[440px] mx-auto mb-6 md:mb-0 md:absolute md:top-2 md:left-8 object-contain z-10 select-none hover:scale-105 transition-all duration-400"
             loading="lazy"
             decoding="async"
           />
@@ -27,7 +28,7 @@ export default function EditorialGuidelines() {
           <img
             src={Guide2}
             alt="Originality guideline"
-            className="absolute top-24 left-40 md:top-52 md:left-100 w-[290px] md:w-[440px] h-auto object-contain z-20 select-none"
+            className="w-[280px] md:w-[440px] mx-auto mb-6 md:mb-0 md:absolute md:top-44 md:left-1/4 object-contain z-20 select-none hover:scale-115 transition-all duration-400"
             loading="lazy"
             decoding="async"
           />
@@ -36,7 +37,7 @@ export default function EditorialGuidelines() {
           <img
             src={Guide3}
             alt="Respect Privacy guideline"
-            className="absolute top-2 right-2 md:top-0 md:right-100 w-[290px] md:w-[440px] h-auto object-contain z-30 select-none"
+            className="w-[280px] md:w-[440px] mx-auto md:absolute md:top-0 md:right-80 object-contain z-30 select-none hover:scale-105 transition-all duration-400"
             loading="lazy"
             decoding="async"
           />
@@ -47,9 +48,11 @@ export default function EditorialGuidelines() {
           <p className="font-secondary font-bold text-base md:text-xl text-white leading-[35px] tracking-[1px]">
             Want to Submit a Story?
           </p>
-          <button className="flex items-center gap-3 bg-white text-[#101213] px-6 py-3 rounded-full font-secondary font-semibold hover:bg-[#f0f0f0] transition-colors duration-300">
-            Submit Blog <img src={ArrowRight} alt="arrow right" />
-          </button>
+          <Link to={"https://nskaiblog.sanity.studio"}>
+            <button className="flex items-center gap-3 bg-white text-[#101213] px-6 py-3 rounded-full font-secondary font-semibold hover:bg-[#f0f0f0] transition-colors duration-300 cursor-pointer">
+              Submit Blog <img src={ArrowRight} alt="arrow right" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>
