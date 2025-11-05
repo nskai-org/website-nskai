@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import RouteScrollToTop from "./utils/RouteScrollToTop";
 import CommunityPage from "./pages/CommunityPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import BlogPage from "./pages/BlogPage";
+import ReadBlogPage from "./pages/ReadBlogPage";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<ReadBlogPage />} />
           {/* ------------ 404 PAGE -------------- */}
           <Route path="*" element={<NotFound />} />
         </Routes>
