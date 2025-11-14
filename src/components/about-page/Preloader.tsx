@@ -5,11 +5,11 @@ export default function Preloader() {
 
   useEffect(() => {
     const handlePageLoad = () => {
-      // Delay to let animation finish smoothly
+      // Delay for smooth animation
       setTimeout(() => setLoading(false), 1000);
     };
 
-    // If the page is already loaded (like on fast refresh)
+    // If the page already loaded (like on fast refresh)
     if (document.readyState === "complete") {
       handlePageLoad();
     } else {

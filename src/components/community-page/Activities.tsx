@@ -7,7 +7,7 @@ export default function Activities() {
     <section className="pb-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-16 md:gap-32 items-center justify-center">
-          <h2 className="max-w-lg text-2xl md:text-[55px] font-primary font-semibold text-center leading-[100%]">
+          <h2 className="max-w-lg text-2xl md:text-[55px] font-primary font-semibold text-center leading-[100%] md:mt-32">
             Weekly & Recurring <span className="font-normal">Activities</span>
           </h2>
 

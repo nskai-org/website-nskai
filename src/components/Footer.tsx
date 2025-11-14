@@ -34,7 +34,7 @@ const footerAboutItems = [
   },
   {
     title: "Donate",
-    link: "#get-involved",
+    link: "#donate",
   },
   {
     title: "Blog",
@@ -42,7 +42,7 @@ const footerAboutItems = [
   },
   {
     title: "Get Involved",
-    link: "#get-involved",
+    link: "/get-involved",
   },
   {
     title: "Contact",

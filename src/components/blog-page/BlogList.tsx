@@ -33,6 +33,23 @@ export default function BlogList() {
   const [activeFilter, setActiveFilter] = useState("View All");
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  // Set initial visible count based on screen size
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth >= 768) {
+        setVisibleCount(6); // md screens and above
+      } else {
+        setVisibleCount(3); // mobile screens
+      }
+    };
+
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
 
   // --- FETCH BLOGS FROM SANITY ---
   useEffect(() => {
@@ -63,10 +80,23 @@ export default function BlogList() {
     fetchBlogs();
   }, []);
 
+  // Reset visible count when filter changes
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      setVisibleCount(6);
+    } else {
+      setVisibleCount(3);
+    }
+  }, [activeFilter]);
+
   const filteredPosts =
     activeFilter === "View All"
       ? blogPosts
       : blogPosts.filter((post) => post.category === activeFilter);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
 
   if (loading) {
     return (
@@ -100,7 +130,7 @@ export default function BlogList() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map((post) => (
+          {filteredPosts.slice(0, visibleCount).map((post) => (
             <Link key={post._id} to={`/blog/${post._id}`}>
               <article className="flex flex-col bg-white rounded-[15px] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg">
                 {/* Image */}
@@ -146,6 +176,18 @@ export default function BlogList() {
             </Link>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {visibleCount < filteredPosts.length && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={handleLoadMore}
+              className="bg-[#101213] text-white font-secondary font-semibold px-8 py-4 rounded-[45px] hover:bg-[#2a2a2a] transition-all duration-300"
+            >
+              Click to browse more blogs
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

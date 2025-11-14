@@ -51,7 +51,7 @@ export default function DonationModal() {
         </button>
       </div>
 
-      {/* Modal - visible only on md+ screens or when triggered */}
+      {/* Modal - visible only on md screens and above or when triggered */}
       <div
         className={`${
           showModal ? "flex" : "hidden md:flex"

@@ -13,8 +13,8 @@ const navItemsList = [
   { title: "Community", link: "/community" },
   { title: "Projects", link: "/projects" },
   { title: "Blog", link: "/blog" },
-  { title: "Get Involved", link: "#get-involved" },
-  { title: "Donate", link: "#get-involved" },
+  { title: "Get Involved", link: "/get-involved" },
+  { title: "Donate", link: "#donate" },
   { title: "Contact", link: "/contact" },
 ];
 
@@ -104,6 +104,8 @@ export default function Navbar() {
                   const isProjectsPage = location.pathname === "/projects";
                   const isAboutPage = location.pathname === "/about";
                   const isBlogPage = location.pathname === "/blog";
+                  const isGetInvolvedPage =
+                    location.pathname === "/get-involved";
 
                   return (
                     <li key={item.link} className="relative">
@@ -121,6 +123,8 @@ export default function Navbar() {
                             ? "text-white"
                             : isBlogPage
                             ? "text-white/50"
+                            : isGetInvolvedPage
+                            ? "text-black"
                             : "text-white"
                         }`}
                       >

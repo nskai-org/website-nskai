@@ -1,4 +1,3 @@
-// ...existing code...
 import TickerText from "./TickerText";
 import NskLogo from "/scroll-logo-nskai.png";
 
@@ -30,4 +29,3 @@ export default function ScrollText() {
     </div>
   );
 }
-// ...existing code...
