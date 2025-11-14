@@ -31,7 +31,7 @@ export default function Subscribe() {
   return (
     <section id="contact" className="min-h-screen py-24">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center mx-auto bg-[#F3E1D7] pr-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center mx-auto bg-[#F3E1D7] pt-4">
           {/* Image */}
           <div className="relative rounded-xl overflow-hidden shadow-2xl order-2 lg:order-1">
             <img
@@ -43,9 +43,9 @@ export default function Subscribe() {
           </div>
 
           {/* Form */}
-          <div className="relative order-1 lg:order-2">
+          <div className="relative order-1 lg:order-2 px-4">
             <div className="relative">
-              <h1 className="font-primary font-semibold leading-[65px] text-4xl lg:text-5xl text-[#101213] mb-4">
+              <h1 className="font-primary font-semibold leading-[100%] md:leading-[65px] text-4xl lg:text-5xl text-[#101213] mb-4">
                 Want to enjoy more <br />{" "}
                 <span className="font-normal">news like this?</span>
               </h1>
@@ -55,7 +55,7 @@ export default function Subscribe() {
 
               <form
                 onSubmit={handleSubmit}
-                className="flex items-center justify-center gap-4"
+                className="flex flex-col md:flex-row items-center justify-center gap-4"
               >
                 <input
                   type="email"
