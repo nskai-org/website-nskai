@@ -7,7 +7,7 @@ import Maina from "../../assets/about-page/country-directors/Maina.png";
 const directors = [
   {
     name: "Sumeya",
-    jobTitle: "Country Director - Ethopia",
+    jobTitle: "Country Director - Ethiopia",
     statement:
       "Sumeya Hussein is a passionate engineer, entrepreneur, and educator dedicated to advancing technology-driven solutions in Africa. She holds a BSc in Electrical and Computer Engineering and an MSc in Computer Engineering.",
     image: Sumeya,

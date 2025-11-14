@@ -10,7 +10,7 @@ const directors = [
     statement:
       "Our mentorship network connects learners with AI professionals, researchers, and community leaders who offer guidance, resources, and career pathways into the global AI ecosystem.",
     image: Ifeanyi,
-    linkedin: "https://www.linkedin.com/in/ifeanyi-okala", // <-- example link
+    linkedin: "https://www.linkedin.com/in/ifeanyi-okala",
   },
   {
     name: "Sai Prabhakar",

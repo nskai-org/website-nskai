@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
 interface TickerTextProps {
-  text: string; // supports HTML
-  speed?: number; // pixels per second
+  text: string;
+  speed?: number;
 }
 
 export default function TickerText({ text, speed = 80 }: TickerTextProps) {

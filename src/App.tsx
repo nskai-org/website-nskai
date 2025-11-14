@@ -11,6 +11,8 @@ import CommunityPage from "./pages/CommunityPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import BlogPage from "./pages/BlogPage";
 import ReadBlogPage from "./pages/ReadBlogPage";
+import GetInvolvedPage from "./pages/GetInvolvedPage";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<ReadBlogPage />} />
+          <Route path="/get-involved" element={<GetInvolvedPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           {/* ------------ 404 PAGE -------------- */}
           <Route path="*" element={<NotFound />} />
         </Routes>
