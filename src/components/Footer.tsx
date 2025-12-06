@@ -69,8 +69,8 @@ const contactItems = [
   {
     icon: Email,
     title: "Email Address",
-    link: "mailto:admin@nskai.org",
-    readLink: "admin@nskai.org",
+    link: "mailto:Contact@nskai.org",
+    readLink: "Contact@nskai.org",
   },
   {
     icon: Location,
