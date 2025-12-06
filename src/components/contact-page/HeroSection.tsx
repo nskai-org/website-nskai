@@ -28,10 +28,10 @@ export default function HeroSection() {
               Email <span className="font-normal">Address</span>
             </p>
             <a
-              href="mailto:admin@nskai.org"
+              href="mailto:Contact@nskai.org"
               className="text-white text-xl font-primary font-extrabold leading-[35px] tracking-[2%]"
             >
-              admin@nskai.org
+              Contact@nskai.org
             </a>
             <div
               onClick={() => {
