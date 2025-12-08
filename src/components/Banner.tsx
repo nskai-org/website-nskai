@@ -13,7 +13,7 @@ export default function Banner() {
           className="select-none pointer-events-none md:w-5 md:h-5"
         />
         <p className="font-secondary text-xs md:text-sm leading-6 font-semibold text-balance select-none">
-          Next Event: AI In Healthcare 16/05/2026 10am ET
+          Next Event: AI for Africa Conference (January 2026)
         </p>
       </div>
       {/* right container */}
@@ -24,14 +24,18 @@ export default function Banner() {
           className="select-none pointer-events-none md:w-5 md:h-5"
         />
 
-        <p className="flex items-center gap-4 font-secondary text-xs md:text-sm leading-6 font-semibold">
-          Open in Discord{" "}
+        <a
+          href="https://forms.gle/wdK7RoupPBSyaYjM6"
+          target="_blank"
+          className="flex items-center gap-4 font-secondary text-xs md:text-sm leading-6 font-semibold"
+        >
+          Sign Up
           <img
             src={solarArrowUpLinear}
             alt="Arrow up icon"
             className="select-none pointer-events-none md:w-5 md:h-5"
           />{" "}
-        </p>
+        </a>
       </div>
     </div>
   );

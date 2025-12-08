@@ -2,7 +2,6 @@ import nvidiaLogo from "../../assets/companies/nvidia-logo-dark.svg";
 import googleLogo from "../../assets/companies/google-logo-dark.svg";
 import langchainLogo from "../../assets/companies/langchain-logo-dark.svg";
 import arrowRight from "../../assets/UIs/solar_arrow-right-black.svg";
-import { Link } from "react-router-dom";
 
 export default function GetInvolved() {
   return (
@@ -22,12 +21,12 @@ export default function GetInvolved() {
           </p>
 
           <div className="flex flex-wrap gap-4 mt-4">
-            <Link to={"/community#becomePart"}>
+            <a href={"https://forms.gle/h2ef7DzuUyXBRwDu5"} target="_blank">
               <button className="bg-[#101213] text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-500 cursor-pointer">
                 Enroll Your Institution
               </button>
-            </Link>
-            <Link to={"/community#becomePart"}>
+            </a>
+            <a href={"https://forms.gle/p6YJ2oonSqFR7JkC7"} target="_blank">
               <button className="flex items-center gap-2 border border-[#101213] px-6 py-3 rounded-full font-medium hover:bg-[#101213] hover:text-white transition duration-500 cursor-pointer">
                 Sponsor a Cohort{" "}
                 <img
@@ -36,7 +35,7 @@ export default function GetInvolved() {
                   className="w-4 h-4 inline-block"
                 />
               </button>
-            </Link>
+            </a>
           </div>
         </div>
 

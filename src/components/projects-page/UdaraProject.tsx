@@ -85,40 +85,6 @@ const kpis = [
   },
 ];
 
-const riskAndReadiness = [
-  {
-    id: 1,
-    description: "Bandwidth variance → downloadable packs, low‑latency mirrors",
-  },
-  {
-    id: 2,
-    description: "Scheduling → time-zone-aware replays",
-  },
-  {
-    id: 3,
-    description: "Local capacity → training coordinators, checklists",
-  },
-];
-
-const partnerBenefits = [
-  {
-    id: 1,
-    description: "Brand visibility across campuses",
-  },
-  {
-    id: 2,
-    description: "Access to talents/community insights (opt-in)",
-  },
-  {
-    id: 3,
-    description: "Impact reporting (country/institution breakdown)",
-  },
-  {
-    id: 4,
-    description: "Co-branded materials and opening/closing remarks",
-  },
-];
-
 export default function UdaraProject() {
   return (
     <section id="udara" className="py-24">
@@ -242,34 +208,6 @@ export default function UdaraProject() {
               Our <span className="font-normal">KPIs</span>
             </h3>
             {kpis.map((item) => (
-              <div key={item.id} className="max-w-[470px]">
-                <span className="font-secondary font-normal text-[#606060] text-base md:text-xl leading-[35px] tracking-[2%]">
-                  • {item.description}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* ------------ risk and readiness ------- */}
-          <div className="flex flex-col justify-center gap-6">
-            <h3 className="font-primary font-semibold text-[#101213] text-2xl md:text-[45px] leading-[100%]">
-              Risk and <span className="font-normal">Readiness</span>
-            </h3>
-            {riskAndReadiness.map((item) => (
-              <div key={item.id} className="max-w-[470px]">
-                <span className="font-secondary font-normal text-[#606060] text-base md:text-xl leading-[35px] tracking-[2%]">
-                  • {item.description}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* ----------- partner benefits ---------- */}
-          <div className="flex flex-col justify-center gap-6">
-            <h3 className="font-primary font-semibold text-[#101213] text-2xl md:text-[45px] leading-[100%]">
-              Partner <span className="font-normal">Benefits</span>
-            </h3>
-            {partnerBenefits.map((item) => (
               <div key={item.id} className="max-w-[470px]">
                 <span className="font-secondary font-normal text-[#606060] text-base md:text-xl leading-[35px] tracking-[2%]">
                   • {item.description}

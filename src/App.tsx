@@ -13,6 +13,9 @@ import BlogPage from "./pages/BlogPage";
 import ReadBlogPage from "./pages/ReadBlogPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsOfService from "./components/terms-page/TermsOfService";
+import CodeOfConductPage from "./pages/CodeOfConductPage";
 
 export default function App() {
   return (
@@ -29,6 +32,9 @@ export default function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<ReadBlogPage />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/conduct" element={<CodeOfConductPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* ------------ 404 PAGE -------------- */}
           <Route path="*" element={<NotFound />} />
