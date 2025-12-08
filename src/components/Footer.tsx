@@ -32,10 +32,10 @@ const footerAboutItems = [
     title: "Projects",
     link: "/projects",
   },
-  {
-    title: "Donate",
-    link: "#donate",
-  },
+  // {
+  //   title: "Donate",
+  //   link: "#donate",
+  // },
   {
     title: "Blog",
     link: "/blog",
@@ -53,15 +53,15 @@ const footerAboutItems = [
 const policiesItems = [
   {
     title: "Privacy",
-    link: "#",
+    link: "/privacy-policy",
   },
   {
     title: "Terms",
-    link: "#",
+    link: "/terms",
   },
   {
     title: "Safeguarding/Code of Conduct",
-    link: "#",
+    link: "/conduct",
   },
 ];
 

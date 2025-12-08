@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 type Option = {
   title: string;
@@ -10,19 +9,19 @@ type Option = {
 };
 
 const involvementOptions: Option[] = [
-  {
-    title: "Want To",
-    subtitle: "Volunteer",
-    details: [
-      {
-        label: "What you'll do",
-        text: "Logistics, communications, research ops, facilitation.",
-      },
-      { label: "Time", text: "2–4 hrs/week on average." },
-    ],
-    buttonText: "Volunteer Now",
-    buttonLink: "/get-involved",
-  },
+  // {
+  //   title: "Want To",
+  //   subtitle: "Volunteer",
+  //   details: [
+  //     {
+  //       label: "What you'll do",
+  //       text: "Logistics, communications, research ops, facilitation.",
+  //     },
+  //     { label: "Time", text: "2–4 hrs/week on average." },
+  //   ],
+  //   buttonText: "Volunteer Now",
+  //   buttonLink: "/get-involved",
+  // },
   {
     title: "Become a",
     subtitle: "Speaker",
@@ -59,7 +58,7 @@ const involvementOptions: Option[] = [
       },
     ],
     buttonText: "Join Us Now",
-    buttonLink: "/partner",
+    buttonLink: "https://forms.gle/xKTqiXasgdrSnk7a7",
   },
 ];
 
@@ -94,11 +93,11 @@ export default function InvolvementOptions() {
               </ul>
 
               <div className="mt-6 flex">
-                <Link to={option.buttonLink}>
+                <a href={option.buttonLink} target="_blank">
                   <button className="rounded-full border border-gray-400 bg-transparent hover:bg-gray-100 text-gray-800 flex items-center px-4 py-3 gap-2">
                     {option.buttonText} <ArrowRight className="h-4 w-4" />
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

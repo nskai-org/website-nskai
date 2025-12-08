@@ -8,21 +8,21 @@ import { Link } from "react-router-dom";
 
 const updates = [
   {
-    title: "RAG AI Agents Bootcamp (2025)",
+    title: "AI For Africa Conference (January 2026)",
     description:
-      "Our largest program to date. 1,370 participants across 50 countries, 20+ speakers, and 6 weeks of practice — participants worked on real-world AI agent prototypes designed to solve African challenges using open-source LLMs and RAG-based workflows.",
+      "A focused gathering designed to explore how artificial intelligence can solve real problems across the African continent. The conference brings together developers, founders, educators, policy thinkers, and creatives to discuss practical applications of AI in areas like education, healthcare, fintech, agriculture, and entrepreneurship.",
     image: UpdateImg1,
   },
   {
-    title: "RAG AI Agents Bootcamp (2026)",
+    title: "The Udara Project (April 2026)",
     description:
-      "Continuing our success, the 2026 cohort featured 1,800+ developers, cross-continental collaboration, and a new mentorship track for applied AI entrepreneurship.",
+      "Awakening Africa, building the Foundations of the Future. Join us in empowering 300,000 young Africans across 9 nations with the tools to build contextually grounded, language-aware AI solutions that transform industries and create unprecedented economic opportunities.",
     image: UpdateImg2,
   },
   {
-    title: "RAG AI Agents Bootcamp (2027)",
+    title: "NSKAI Thursday AI Workshops",
     description:
-      "A bold vision for the future — merging AI education with real-world deployment opportunities. This edition expanded to 70+ countries and 2,000+ learners.",
+      "A weekly hands-on learning series held every Thursday, designed to help beginners and professionals understand and apply AI in real projects. Each session focuses on one practical topic—tools, coding, automation, productivity, or real-world problem-solving. Participants learn by doing, follow simple guided exercises, and leave with skills they can immediately use in school, work, or their personal projects.",
     image: UpdateImg3,
   },
 ];
@@ -125,7 +125,7 @@ export default function HeroSection() {
                     className="select-none flex-shrink-0 w-20 sm:w-24 h-20 sm:h-24 object-cover rounded-lg"
                   />
 
-                  <div className="flex flex-col gap-2 text-white flex-1 min-w-0">
+                  <div className="flex flex-col gap-2 text-gray-900 flex-1 min-w-0">
                     <span className="text-sm opacity-80">Updates</span>
                     <h3 className="font-primary font-semibold text-base sm:text-lg md:text-xl leading-snug">
                       {update.title}
@@ -145,7 +145,7 @@ export default function HeroSection() {
                     {isLong && (
                       <button
                         onClick={() => toggleReadMore(index)}
-                        className="text-xs select-none text-white/80 hover:text-white w-fit mt-1"
+                        className="text-xs select-none text-black/80 hover:text-black transition-colors duration-300 w-fit mt-1"
                       >
                         {isExpanded ? "Show less" : "Read more"}
                       </button>
