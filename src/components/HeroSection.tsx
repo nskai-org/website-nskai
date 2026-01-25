@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const updates = [
   {
-    title: "AI For Africa Conference (January 2026)",
+    title: "NSK.AI x The Udara Exchange Workshop (January 2026)",
     description:
       "A focused gathering designed to explore how artificial intelligence can solve real problems across the African continent. The conference brings together developers, founders, educators, policy thinkers, and creatives to discuss practical applications of AI in areas like education, healthcare, fintech, agriculture, and entrepreneurship.",
     image: UpdateImg1,

@@ -1,4 +1,4 @@
-import bgImage from "../../assets/community-page/udara-project.png";
+import bgImage from "../../assets/community-page/udara.png";
 import completed from "../../assets/community-page/udara-2026.svg";
 import button from "../../assets/community-page/button-udara.svg";
 

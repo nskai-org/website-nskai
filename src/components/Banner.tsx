@@ -13,7 +13,7 @@ export default function Banner() {
           className="select-none pointer-events-none md:w-5 md:h-5"
         />
         <p className="font-secondary text-xs md:text-sm leading-6 font-semibold text-balance select-none">
-          Next Event: AI for Africa Conference (January 2026)
+          Next Event: NSK.AI X Udara Workshop ( January 29–30, 2026)
         </p>
       </div>
       {/* right container */}
@@ -26,6 +26,7 @@ export default function Banner() {
 
         <a
           href="https://forms.gle/wdK7RoupPBSyaYjM6"
+          
           target="_blank"
           className="flex items-center gap-4 font-secondary text-xs md:text-sm leading-6 font-semibold"
         >
