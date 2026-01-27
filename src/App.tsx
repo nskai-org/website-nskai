@@ -10,6 +10,8 @@ import RouteScrollToTop from "./utils/RouteScrollToTop";
 import CommunityPage from "./pages/CommunityPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import BlogPage from "./pages/BlogPage";
+import UpcomingeventPage from "./pages/UpcomingeventPage";
+import UpcomingEventDetailsPage from "./pages/UpcomingEventDetailsPage";
 import ReadBlogPage from "./pages/ReadBlogPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
 import ContactPage from "./pages/ContactPage";
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/upcoming-event" element={<UpcomingeventPage />} />
+          <Route path="/upcoming-event/details" element={<UpcomingEventDetailsPage />} />
           <Route path="/blog/:id" element={<ReadBlogPage />} />
           <Route path="/get-involved" element={<GetInvolvedPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />

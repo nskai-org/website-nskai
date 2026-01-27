@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import NskLogo from "/nsk-ai-logo.svg";
 import Hamburger from "../assets/tabler_menu.svg";
 import RagImage from "/rag-ai-2025.png";
-import UdaraImage from "/udara-2026.png";
+import UdaraImage from "/udara1.jpg";
 import X from "../assets/navbar-socials/design-x.svg";
 import Youtube from "../assets/navbar-socials/design-youtube.png";
 import LinkedIn from "../assets/navbar-socials/design-linkedin.png";
 
 const navItemsList = [
   { title: "About", link: "/about" },
+  { title: "Upcoming Event", link: "/upcoming-event" },
   { title: "Community", link: "/community" },
   { title: "Projects", link: "/projects" },
   { title: "Blog", link: "/blog" },
@@ -97,12 +98,12 @@ export default function Navbar() {
             {/* Show About + Contact on lg and above, only when NOT scrolled */}
             {!scrolled && (
               <ul className="hidden lg:flex items-center gap-8 transition-opacity duration-300">
-                {["/about", "/projects"].map((link) => {
+                {["/about", "/upcoming-event"].map((link) => {
                   const item = navItemsList.find((n) => n.link === link);
                   if (!item) return null;
-
-                  const isProjectsPage = location.pathname === "/projects";
+                  const isUpcomingEventPage = location.pathname === "/upcoming-event";
                   const isAboutPage = location.pathname === "/about";
+                  const isProjectsPage = location.pathname === "/projects";
                   const isBlogPage = location.pathname === "/blog";
                   const isGetInvolvedPage =
                     location.pathname === "/get-involved";
@@ -123,6 +124,8 @@ export default function Navbar() {
                           isProjectsPage
                             ? "text-black"
                             : isAboutPage
+                            ? "text-white"
+                            : isUpcomingEventPage
                             ? "text-white"
                             : isBlogPage
                             ? "text-white/50"
