@@ -11,7 +11,7 @@ export default function EventDetail() {
     <section className="bg-[#101213] text-white py-20 px-6">
       {/* Title */}
       <h2 className="text-3xl md:text-5xl font-primary font-semibold text-center mb-16">
-        EventDetail
+        Event Detail
       </h2>
 
       {/* Grid */}
