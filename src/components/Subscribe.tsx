@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+
+const ACCESS_KEY =
+  (import.meta.env.VITE_WEB3FORM_PUBLIC_KEY as string | undefined) ??
+  "f7451474-16a0-40ec-82b5-72bb160103e5";
 
 export default function Subscribe() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
 
+    const email = (formData.get("email") as string) ?? "";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setStatus("error");
@@ -18,18 +22,32 @@ export default function Subscribe() {
     }
 
     setStatus("loading");
+    setMessage("");
 
-    // simulate API delay
-    setTimeout(() => {
-      console.log("Email submitted:", email);
-      setStatus("success");
-      setMessage("Successfully signed up! Thank you for joining the movement.");
-      setEmail("");
-    }, 1200);
+    formData.append("access_key", ACCESS_KEY);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        setMessage("Successfully signed up! Thank you for joining the movement.");
+        formElement.reset();
+      } else {
+        setStatus("error");
+        setMessage("Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
   };
 
   return (
-    <section id="contact" className="min-h-screen py-24">
+    <section id="newsletter" className="min-h-screen py-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center mx-auto bg-[#F3E1D7] pt-4">
           {/* Image */}
@@ -39,18 +57,18 @@ export default function Subscribe() {
               alt="Students working together on laptops"
               className="w-full h-96 lg:h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
 
           {/* Form */}
           <div className="relative order-1 lg:order-2 px-4">
             <div className="relative">
               <h1 className="font-primary font-semibold leading-[100%] md:leading-[65px] text-4xl lg:text-5xl text-[#101213] mb-4">
-                Want to enjoy more <br />{" "}
+                Want to enjoy more <br />
                 <span className="font-normal">news like this?</span>
               </h1>
               <p className="font-secondary text-[17px] lg:text-xl leading-[30px] text-gray-700 mb-8">
-                Sign up for our newsletter and receive more updates like this.{" "}
+                Sign up for our newsletter and receive more updates like this.
               </p>
 
               <form
@@ -59,16 +77,14 @@ export default function Subscribe() {
               >
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
                   placeholder="Email Address"
                   className="flex-3 w-full px-6 py-4 rounded-[40px] bg-[#FAFAFA66] border-2 border-transparent focus:border-orange-300 focus:bg-white focus:outline-none transition-all duration-200 text-gray-800 placeholder-gray-500 text-lg"
                 />
-
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="flex-1 w-full bg-white hover:border-gray-300 text-[#101213] font-secondary font-bold tracking-[1px] leading-[32px] py-4 px-8 rounded-[40px] transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-base"
+                  className="flex-1 w-full bg-white hover:border-gray-300 text-[#101213] font-secondary font-bold tracking-[1px] leading-[32px] py-4 px-8 rounded-[40px] transition-all duration-200 hover:shadow-[0_0_15px_#ff4d4d] disabled:opacity-50 disabled:cursor-not-allowed text-base"
                 >
                   {status === "loading" ? "Submitting..." : "Submit"}
                 </button>

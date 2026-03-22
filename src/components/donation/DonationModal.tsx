@@ -12,12 +12,10 @@ export default function DonationModal() {
 
   useEffect(() => {
     if (showModal) {
-      document.body.style.overflow = "hidden"; // Disable scroll
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Restore scroll
+      document.body.style.overflow = "";
     }
-
-    // Clean up on unmount
     return () => {
       document.body.style.overflow = "";
     };
@@ -31,9 +29,8 @@ export default function DonationModal() {
   ];
 
   const getCurrencySymbol = (code: string) =>
-    currencies.find((c) => c.code === code)?.symbol || "$";
+    currencies.find((c) => c.code === code)?.symbol ?? "$";
 
-  // Dynamic amounts based on selected currency
   const amounts =
     selectedCurrency === "NGN"
       ? [10000, 20000, 50000, 100000, 200000, 500000]
@@ -41,17 +38,17 @@ export default function DonationModal() {
 
   return (
     <>
-      {/* Donation button for small screens */}
+      {/* Mobile trigger button */}
       <div className="block md:hidden text-center mt-8">
         <button
           onClick={() => setShowModal(true)}
-          className="font-secondary font-medium bg-white text-[#101213] px-6 py-3 rounded-full text-sm"
+          className="font-secondary font-semibold bg-white text-[#101213] px-8 py-3 rounded-full text-sm transition-all duration-300 hover:shadow-[0_0_15px_#ff4d4d]"
         >
-          Donation Button
+          Donate Now
         </button>
       </div>
 
-      {/* Modal - visible only on md screens and above or when triggered */}
+      {/* Modal — always visible on md+, modal on mobile */}
       <div
         className={`${
           showModal ? "flex" : "hidden md:flex"
@@ -65,55 +62,44 @@ export default function DonationModal() {
               exit={{ opacity: 0 }}
               className="bg-white rounded-2xl shadow-xl w-96 p-6 relative"
             >
-              {/* Close button for small screens */}
+              {/* Mobile close */}
               {showModal && (
                 <button
                   onClick={() => setShowModal(false)}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-black"
+                  aria-label="Close donation modal"
+                  className="absolute top-4 right-4 text-gray-500 hover:text-black transition-colors"
                 >
                   <X size={20} />
                 </button>
               )}
 
-              {/* Header */}
               <h3 className="text-lg text-black font-semibold text-center">
                 Select Amount To Donate
               </h3>
-              <p className="text-sm text-gray-500 text-center mb-4">
-                A little love goes a long way.
-              </p>
+              <p className="text-sm text-gray-500 text-center mb-4">A little love goes a long way.</p>
 
-              {/* Tabs */}
+              {/* Give once / monthly tabs */}
               <div className="flex bg-gray-100 rounded-lg p-1 mb-5">
-                <button
-                  onClick={() => setActiveTab("once")}
-                  className={`flex-1 py-2 rounded-md text-sm font-medium ${
-                    activeTab === "once"
-                      ? "bg-white shadow text-black"
-                      : "text-gray-500"
-                  }`}
-                >
-                  Give Once
-                </button>
-                <button
-                  onClick={() => setActiveTab("monthly")}
-                  className={`flex-1 py-2 rounded-md text-sm font-medium ${
-                    activeTab === "monthly"
-                      ? "bg-white shadow text-black"
-                      : "text-gray-500"
-                  }`}
-                >
-                  Give Monthly
-                </button>
+                {(["once", "monthly"] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`flex-1 py-2 rounded-md text-sm font-medium capitalize transition-all ${
+                      activeTab === tab ? "bg-white shadow text-black" : "text-gray-500"
+                    }`}
+                  >
+                    Give {tab === "once" ? "Once" : "Monthly"}
+                  </button>
+                ))}
               </div>
 
-              {/* Amount buttons */}
+              {/* Amount grid */}
               <div className="grid grid-cols-3 gap-3 mb-5">
                 {amounts.map((amount) => (
                   <button
                     key={amount}
                     onClick={() => setSelectedAmount(amount)}
-                    className={`py-2 rounded-lg border text-sm font-medium ${
+                    className={`py-2 rounded-lg border text-sm font-medium transition-all ${
                       selectedAmount === amount
                         ? "border-black bg-black text-white"
                         : "border-gray-300 text-gray-700 hover:border-black"
@@ -134,20 +120,15 @@ export default function DonationModal() {
                   </div>
                   <div className="relative">
                     <button
-                      onClick={() =>
-                        setShowCurrencyDropdown(!showCurrencyDropdown)
-                      }
+                      onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
                       className="flex items-center gap-2 border rounded-md px-3 py-1"
                     >
                       <div
                         className={`w-4 h-4 rounded-full ${
-                          currencies.find((c) => c.code === selectedCurrency)
-                            ?.color
+                          currencies.find((c) => c.code === selectedCurrency)?.color
                         }`}
-                      ></div>
-                      <span className="text-sm text-black font-medium">
-                        {selectedCurrency}
-                      </span>
+                      />
+                      <span className="text-sm text-black font-medium">{selectedCurrency}</span>
                     </button>
 
                     {showCurrencyDropdown && (
@@ -157,14 +138,12 @@ export default function DonationModal() {
                             key={curr.code}
                             onClick={() => {
                               setSelectedCurrency(curr.code);
-                              setSelectedAmount(null); // reset amount when switching currency
+                              setSelectedAmount(null);
                               setShowCurrencyDropdown(false);
                             }}
                             className="flex items-center gap-2 w-full px-3 py-2 hover:bg-gray-100 text-black text-sm"
                           >
-                            <div
-                              className={`w-4 h-4 rounded-full ${curr.color}`}
-                            ></div>
+                            <div className={`w-4 h-4 rounded-full ${curr.color}`} />
                             {curr.code}
                           </button>
                         ))}
@@ -174,7 +153,7 @@ export default function DonationModal() {
                 </div>
               </div>
 
-              {/* Comment box */}
+              {/* Comment */}
               <textarea
                 placeholder="Add your comment/note here..."
                 value={comment}
@@ -182,8 +161,11 @@ export default function DonationModal() {
                 className="w-full text-gray-700 border border-gray-300 rounded-lg p-3 text-sm mb-5 resize-none h-24"
               />
 
-              {/* Continue button */}
-              <button className="w-full bg-black text-white py-3 rounded-full font-medium flex items-center justify-center gap-2">
+              {/* Continue — links to donation platform (placeholder) */}
+              <button
+                disabled={!selectedAmount}
+                className="w-full bg-black text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-[0_0_15px_#ff4d4d] disabled:opacity-40 disabled:cursor-not-allowed"
+              >
                 Continue →
               </button>
             </motion.div>

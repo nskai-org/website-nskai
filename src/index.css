@@ -4,25 +4,33 @@
 
 @import "tailwindcss";
 
-/* Defined custom theme values */
+/*  Design tokens  */
 @theme {
   --font-primary: "Encode Sans", sans-serif;
   --font-secondary: "Open Sans", sans-serif;
   --font-tertiary: "Urbanist", sans-serif;
+
+  /* Unified brand colors (replaces #101213 / #161616 / #1C1D1F scatter) */
+  --color-brand-dark: #101213;
+  --color-brand-red: #ff4d4d;
+  --color-brand-surface: #f9f9f9;
 }
 
+/*  Base  */
 @layer base {
   body {
     @apply font-primary;
+    background-color: #ffffff;
+    color: #101213;
   }
 }
 
+/*  Scrollbar hidden  */
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-/* Chrome, Safari, Opera */
 *::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -32,10 +40,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Encode Sans", sans-serif;
-}
-
+/* Keyframes  */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -47,11 +52,7 @@ body {
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Preloader animation */
+/* Preloader expansion */
 @keyframes expand {
   0% {
     transform: scale(1);
@@ -67,7 +68,25 @@ body {
   }
 }
 
-/* --------------About page preloader animation ---------------- */
-.animate-expand {
+/* Infinite horizontal image-strip scroll (Get Involved page) */
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/*  Utilities  */
+@utility animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@utility animate-expand {
   animation: expand 1s ease-in-out forwards;
+}
+
+@utility animate-scroll {
+  animation: scroll-x 25s linear infinite;
 }
