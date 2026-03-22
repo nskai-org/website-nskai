@@ -1,6 +1,5 @@
 import { FaLinkedin } from "react-icons/fa";
 import Ifeanyi from "../../assets/about-page/board-of-directors/Ifeanyi=-Okala.jpg";
-import Chukwuebuka from "../../assets/about-page/board-of-directors/Chukwuebuka-Chukwudi.jpg";
 import Sai from "../../assets/about-page/board-of-directors/Sai-Prabhakar.jpg";
 
 const directors = [
@@ -19,14 +18,6 @@ const directors = [
       "Our mentorship network connects learners with AI professionals, researchers, and community leaders who offer guidance, resources, and career pathways into the global AI ecosystem.",
     image: Sai,
     linkedin: "https://www.linkedin.com/in/sai-prabhakar",
-  },
-  {
-    name: "Chukwuebuka Chukwudi",
-    jobTitle: "Community Lead",
-    statement:
-      "Our mentorship network connects learners with AI professionals, researchers, and community leaders who offer guidance, resources, and career pathways into the global AI ecosystem.",
-    image: Chukwuebuka,
-    linkedin: "https://www.linkedin.com/in/chukwuebuka-chukwudi",
   },
 ];
 

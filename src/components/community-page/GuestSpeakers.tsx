@@ -1,6 +1,5 @@
 import Ifeanyi from "../../assets/community-page/guestSpeakers/Ifeanyi=-Okala.jpg";
 import Sai from "../../assets/community-page/guestSpeakers/Sai-Prabhakar.jpg";
-import Chukwuebuka from "../../assets/community-page/guestSpeakers/Chukwuebuka-Chukwudi.jpg";
 import Anirudh from "../../assets/community-page/guestSpeakers/Anirudh-Mani.jpg";
 import Avinash from "../../assets/community-page/guestSpeakers/Avinash-Siravuru.jpg";
 import Benjamin from "../../assets/community-page/guestSpeakers/Benjamin-Schloss.jpg";
@@ -33,14 +32,6 @@ const directors = [
       "Our mentorship network connects learners with AI professionals, researchers, and community leaders who offer guidance, resources, and career pathways into the global AI ecosystem.",
     image: Sai,
     linkedin: "https://www.linkedin.com/in/sai-prabhakar",
-  },
-  {
-    name: "Chukwuebuka Chukwudi",
-    jobTitle: "Community Lead",
-    statement:
-      "Our mentorship network connects learners with AI professionals, researchers, and community leaders who offer guidance, resources, and career pathways into the global AI ecosystem.",
-    image: Chukwuebuka,
-    linkedin: "https://www.linkedin.com/in/chukwuebuka-chukwudi",
   },
   {
     name: "Anirudh Mani",

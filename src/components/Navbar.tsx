@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { X } from "lucide-react";
 import NskLogo from "/nsk-ai-logo.svg";
 import Hamburger from "../assets/tabler_menu.svg";
 import RagImage from "/rag-ai-2025.png";
 import UdaraImage from "/udara1.jpg";
-import X from "../assets/navbar-socials/design-x.svg";
+import SocialX from "../assets/navbar-socials/design-x.svg";
 import Youtube from "../assets/navbar-socials/design-youtube.png";
 import LinkedIn from "../assets/navbar-socials/design-linkedin.png";
 
@@ -15,27 +16,17 @@ const navItemsList = [
   { title: "Projects", link: "/projects" },
   { title: "Blog", link: "/blog" },
   { title: "Get Involved", link: "/get-involved" },
-  // { title: "Donate", link: "#donate" },
   { title: "Contact", link: "/contact" },
 ];
 
 const socialIcons = [
-  {
-    name: "X(formerly Twitter)",
-    link: "https://x.com/NskAiCommunity",
-    icon: X,
-  },
-  {
-    name: "Youtube",
-    link: "https://www.youtube.com/@Nskaicommunity",
-    icon: Youtube,
-  },
-  {
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/company/ai-nsk/",
-    icon: LinkedIn,
-  },
+  { name: "X (formerly Twitter)", link: "https://x.com/NskAiCommunity", icon: SocialX },
+  { name: "Youtube", link: "https://www.youtube.com/@Nskaicommunity", icon: Youtube },
+  { name: "LinkedIn", link: "https://www.linkedin.com/company/ai-nsk/", icon: LinkedIn },
 ];
+
+/** Pages whose hero background is light — desktop nav text should be dark */
+const LIGHT_BG_ROUTES = ["/", "/projects", "/get-involved", "/community", "/terms", "/privacy-policy", "/conduct"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,28 +34,21 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Detect scroll position
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //  Check if route is active
   const isActive = (path: string) => {
     if (path.startsWith("#")) return false;
     return location.pathname === path;
   };
 
-  //  Handle clicks for both routes and hash links
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    link: string
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
     if (link.startsWith("#")) {
       e.preventDefault();
-      const targetId = link.substring(1);
-      const target = document.getElementById(targetId);
+      const target = document.getElementById(link.substring(1));
       if (target) target.scrollIntoView({ behavior: "smooth" });
       setMenuOpen(false);
     } else {
@@ -73,13 +57,20 @@ export default function Navbar() {
     }
   };
 
+  const isLightPage = LIGHT_BG_ROUTES.includes(location.pathname);
+  const desktopNavText = scrolled
+    ? "text-[#101213]"
+    : isLightPage
+    ? "text-[#101213]"
+    : "text-white";
+
   return (
     <>
-      {/* Navbar */}
+      {/* ── Navbar bar ─────────────────────────────────────────────────────── */}
       <nav
         className={`fixed top-[48px] md:top-[32px] left-0 w-full z-[80] transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-lg top-[68px] md:top-[34px] bg-white/10 py-4"
+            ? "backdrop-blur-lg bg-white/10 py-4"
             : "bg-transparent py-6"
         }`}
       >
@@ -94,66 +85,32 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="flex items-center gap-6">
-            {/* Show About + Contact on lg and above, only when NOT scrolled */}
-            {!scrolled && (
-              <ul className="hidden lg:flex items-center gap-8 transition-opacity duration-300">
-                {["/about", "/upcoming-event"].map((link) => {
-                  const item = navItemsList.find((n) => n.link === link);
-                  if (!item) return null;
-                  const isUpcomingEventPage = location.pathname === "/upcoming-event";
-                  const isAboutPage = location.pathname === "/about";
-                  const isProjectsPage = location.pathname === "/projects";
-                  const isBlogPage = location.pathname === "/blog";
-                  const isGetInvolvedPage =
-                    location.pathname === "/get-involved";
-                  const isTermsPage = location.pathname === "/terms";
-                  const isPrivacyPage = location.pathname === "/privacy-policy";
-                  const isConductPage = location.pathname === "/conduct";
+          <div className="flex items-center gap-4">
+            {/* ── Desktop nav links (all 7, always visible on lg) ── */}
+            <ul className="hidden lg:flex items-center gap-6 transition-opacity duration-300">
+              {navItemsList.map((item) => (
+                <li key={item.link} className="relative">
+                  {isActive(item.link) && (
+                    <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full" />
+                  )}
+                  <Link
+                    to={item.link}
+                    onClick={(e) => handleNavClick(e, item.link)}
+                    className={`font-secondary font-semibold text-base transition-colors hover:opacity-70 ${desktopNavText} ${
+                      isActive(item.link) ? "underline underline-offset-4" : ""
+                    }`}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-                  return (
-                    <li key={item.link} className="relative">
-                      {/* Active dot */}
-                      {isActive(item.link) && (
-                        <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full"></span>
-                      )}
-                      <Link
-                        to={item.link}
-                        onClick={(e) => handleNavClick(e, item.link)}
-                        className={`font-secondary font-semibold text-lg transition-colors ${
-                          isProjectsPage
-                            ? "text-black"
-                            : isAboutPage
-                            ? "text-white"
-                            : isUpcomingEventPage
-                            ? "text-white"
-                            : isBlogPage
-                            ? "text-white/50"
-                            : isGetInvolvedPage
-                            ? "text-black"
-                            : isTermsPage
-                            ? "text-black"
-                            : isPrivacyPage
-                            ? "text-black"
-                            : isConductPage
-                            ? "text-black"
-                            : "text-white"
-                        }`}
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-
-            {/* Hamburger */}
+            {/* ── Hamburger ── */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`bg-white py-[10px] px-5 flex items-center justify-center rounded-full cursor-pointer shadow-sm transition-transform duration-300 ${
-                menuOpen ? "rotate-90" : "rotate-0"
-              }`}
+              className="bg-white py-[10px] px-5 flex items-center justify-center rounded-full cursor-pointer shadow-sm"
+              aria-label="Open menu"
             >
               <img
                 src={Hamburger}
@@ -165,32 +122,30 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ✅ Smooth Slide-in Overlay */}
+      {/* ── Backdrop overlay ────────────────────────────────────────────────── */}
       <div
         className={`fixed inset-0 z-[90] bg-black/30 backdrop-blur-sm transition-opacity duration-700 ${
           menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setMenuOpen(false)}
-      ></div>
+      />
 
+      {/* ── Full-screen slide-in menu ────────────────────────────────────────── */}
       <div
         className={`fixed top-[48px] md:top-[32px] right-0 h-full w-full bg-white z-[100] shadow-2xl transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close Button */}
+        {/* Close button */}
         <button
           onClick={() => setMenuOpen(false)}
-          className="absolute top-6 right-6 md:right-30 lg:right-6 bg-white p-3 rounded-full hover:bg-white/10 transition duration-300 z-[110] cursor-pointer"
+          aria-label="Close menu"
+          className="absolute top-6 right-6 md:right-30 lg:right-6 bg-white p-3 rounded-full hover:bg-gray-100 transition duration-300 z-[110] cursor-pointer"
         >
-          <img
-            src={Hamburger}
-            alt="Close menu"
-            className="w-6 h-6 rotate-90 pointer-events-none"
-          />
+          <X size={24} className="text-[#101213]" />
         </button>
 
-        {/* Main Content */}
+        {/* Menu content */}
         <div className="flex flex-col md:flex-row h-full overflow-y-auto">
           {/* Left side */}
           <div className="w-full md:w-1/2 flex flex-col justify-between py-12 px-10">
@@ -205,8 +160,8 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, item.link)}
                     className={`block text-3xl md:text-4xl font-light transition-all ${
                       isActive(item.link)
-                        ? "text-black"
-                        : "text-gray-500 hover:text-black"
+                        ? "text-[#101213]"
+                        : "text-gray-500 hover:text-[#101213]"
                     }`}
                   >
                     {item.title}
@@ -215,20 +170,17 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Featured Projects (Mobile only) */}
+            {/* Featured projects – mobile only */}
             <div className="block md:hidden mt-12 space-y-6">
               <div
                 className="bg-cover bg-center text-white rounded-2xl overflow-hidden flex flex-col justify-end p-6 min-h-[280px]"
                 style={{ backgroundImage: `url(${RagImage})` }}
               >
                 <div className="bg-black/50 p-4 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-1">
-                    RAG AI Agents Bootcamp (2025)
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-1">RAG AI Agents Bootcamp (2025)</h3>
                   <p className="text-sm leading-relaxed">
-                    Our largest program to date. 1,370 participants across 50
-                    countries, 20+ speakers, and 6 weeks of practical training
-                    in RAG, agent workflows, and production deployment.
+                    Our largest program to date. 1,370 participants across 50 countries, 20+ speakers,
+                    and 6 weeks of practical training in RAG, agent workflows, and production deployment.
                   </p>
                 </div>
               </div>
@@ -238,13 +190,10 @@ export default function Navbar() {
                 style={{ backgroundImage: `url(${UdaraImage})` }}
               >
                 <div className="bg-black/50 p-4 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-1">
-                    Udara Project (2026)
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-1">Udara Project (2026)</h3>
                   <p className="text-sm leading-relaxed">
-                    One week. 300,000 students. 300 institutions. 10 countries.
-                    An ambitious continent-wide virtual AI class to deliver
-                    foundational AI literacy at massive scale.
+                    One week. 300,000 students. 300 institutions. 10 countries. An ambitious
+                    continent-wide virtual AI class to deliver foundational AI literacy at massive scale.
                   </p>
                 </div>
               </div>
@@ -266,19 +215,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right side (Desktop only) */}
+          {/* Right side – desktop only */}
           <div className="hidden md:flex w-1/2 h-full flex-col">
             <div
               className="flex-1 bg-cover bg-center text-white flex flex-col justify-center p-8"
               style={{ backgroundImage: `url(${RagImage})` }}
             >
-              <h3 className="text-2xl md:text-3xl font-semibold mb-2">
-                RAG AI Agents Bootcamp (2025)
-              </h3>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-2">RAG AI Agents Bootcamp (2025)</h3>
               <p className="text-sm md:text-base max-w-md leading-relaxed">
-                Our largest program to date. 1,370 participants across 50
-                countries, 20+ speakers, and 6 weeks of practical training in
-                RAG, agent workflows, and production deployment.
+                Our largest program to date. 1,370 participants across 50 countries, 20+ speakers,
+                and 6 weeks of practical training in RAG, agent workflows, and production deployment.
               </p>
             </div>
 
@@ -286,13 +232,10 @@ export default function Navbar() {
               className="flex-1 bg-cover bg-center text-white flex flex-col justify-center p-8"
               style={{ backgroundImage: `url(${UdaraImage})` }}
             >
-              <h3 className="text-2xl md:text-3xl font-semibold mb-2">
-                Udara Project (2026)
-              </h3>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-2">Udara Project (2026)</h3>
               <p className="text-sm md:text-base max-w-md leading-relaxed">
-                One week. 300,000 students. 300 institutions. 10 countries. An
-                ambitious continent-wide virtual AI class to deliver
-                foundational AI literacy at massive scale.
+                One week. 300,000 students. 300 institutions. 10 countries. An ambitious
+                continent-wide virtual AI class to deliver foundational AI literacy at massive scale.
               </p>
             </div>
           </div>
