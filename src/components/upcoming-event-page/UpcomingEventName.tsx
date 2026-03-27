@@ -33,19 +33,6 @@ export default function UpcomingEventName() {
               Read More <img src={ArrowRight} alt="Right arrow" />
             </button>
           </Link>
-
-
-            {/* For small and medium screens */}
-            <button
-              onClick={() =>
-                document
-                  .getElementById("blogList")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="bg-white px-6 py-5 text-[#101213] rounded-[45px] flex items-center justify-center gap-5 text-base font-secondary font-semibold leading-[146%] cursor-pointer lg:hidden"
-            >
-              Read More <img src={ArrowRight} alt="Right arrow" />
-            </button>
           </div>
         </div>
 
@@ -64,6 +51,16 @@ export default function UpcomingEventName() {
             >
               Register Now
             </a>
+
+            <a
+              href="https://us06web.zoom.us/webinar/register/WN_VoQ4yE4SRD6z_jssg0sDmw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block lg:hidden bg-black text-white px-6 py-4 rounded-[45px] font-secondary font-semibold text-center w-full"
+            >
+              Register Now
+            </a>
+
           {/* ------- featured svg --------------- */}
           <img
             src={Featured}
